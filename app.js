@@ -16,7 +16,9 @@ document.getElementById("submit").addEventListener("click", function () {
     return;
   }
   errorName.textContent = "";
+});
 
+document.getElementById("submit").addEventListener("click", function () {
   //   last name
   const lastNameInput = document.getElementById("last-name").value.trim();
   const errorLastName = document.querySelector(".error-last-name");
@@ -35,7 +37,9 @@ document.getElementById("submit").addEventListener("click", function () {
     return;
   }
   errorLastName.textContent = "";
+});
 
+document.getElementById("submit").addEventListener("click", function () {
   //   email
   const emailInput = document.getElementById("email").value.trim();
   const errorEmail = document.querySelector(".error-email");
@@ -45,9 +49,30 @@ document.getElementById("submit").addEventListener("click", function () {
     errorEmail.textContent = "Email cannot be empty.";
     return;
   }
-  if(!emailRegex.test(emailInput)){
+  if (!emailRegex.test(emailInput)) {
     errorEmail.textContent = " Please enter a valid email address.";
     return;
   }
   errorEmail.textContent = "";
+});
+
+document.getElementById("submit").addEventListener("click", function () {
+  //   phone
+  const phoneInput = document.getElementById("phone").value.trim();
+  const errorPhone = document.querySelector(".error-phone");
+  const lbPhoneRegex = /^(03|70|71|76|78|79|81|82|83|84|85|88)\d{6}$/;
+
+  if (phoneInput === "") {
+    errorPhone.textContent = "Phone cannot be epmty.";
+    return;
+  }
+  if (!/^\d+$/.test(phoneInput)) {
+    errorPhone.textContent = "Phone must contain numbers only.";
+    return;
+  }
+  if (!lbPhoneRegex.test(phoneInput)) {
+    errorPhone.textContent = "Please enter a valid Lebanese phone number.";
+    return;
+  }
+  errorPhone.textContent = "";
 });
