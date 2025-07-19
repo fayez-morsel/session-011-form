@@ -1,5 +1,5 @@
-// validation name 
 document.getElementById("submit").addEventListener("click", function () {
+    // name
   const nameInput = document.getElementById("name").value.trim();
   const errorName = document.querySelector(".error-name");
 
@@ -16,4 +16,22 @@ document.getElementById("submit").addEventListener("click", function () {
     return;
   }
   errorName.textContent = "";
+
+//   last name 
+  const lastNameInput = document.getElementById("last-name").value.trim();
+  const errorLastName = document.querySelector(".error-last-name");
+
+  if (lastNameInput === "") {
+    errorLastName.textContent = "Last Name cannot be empty.";
+    return;
+  }
+  if (/\d/.test(lastNameInput)){
+    errorLastName.textContent = "Last Name connot contain numbers.";
+    return;
+  }
+  if (lastNameInput.length < 5 || lastNameInput.length >12) {
+    errorLastName.textContent = "Last Name must be between 5 and 12 characters."
+    return
+  }
+  errorLastName.textContent = "";
 });
