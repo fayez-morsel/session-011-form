@@ -36,7 +36,7 @@ input[type="text"]:focus {
   outline: none;
 }
 
-button{
+button {
   margin-top: 15px;
   padding: 10px 20px;
   background: linear-gradient(90deg, #43cea2 0%, #185a9d 100%);
@@ -77,4 +77,21 @@ form {
   padding: 30px;
   border-radius: 8px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.success-message {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.success-message .checkmark {
+  font-size: 3em;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.success-message h2 {
+  color: #43cea2;
+  font-size: 2em;
+  margin: 0;
 }

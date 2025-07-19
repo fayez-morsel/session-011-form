@@ -1,7 +1,13 @@
+let isNameValid = false;
+let isLastNameValid = false;
+let isEmailValid = false;
+let isPhoneValid = false;
+
 document.getElementById("submit").addEventListener("click", function () {
   // name
   const nameInput = document.getElementById("name").value.trim();
   const errorName = document.querySelector(".error-name");
+  isNameValid = false;
 
   if (nameInput === "") {
     errorName.textContent = "Name cannot be empty.";
@@ -16,12 +22,14 @@ document.getElementById("submit").addEventListener("click", function () {
     return;
   }
   errorName.textContent = "";
+  isNameValid = true;
 });
 
 document.getElementById("submit").addEventListener("click", function () {
   //   last name
   const lastNameInput = document.getElementById("last-name").value.trim();
   const errorLastName = document.querySelector(".error-last-name");
+  isLastNameValid = false;
 
   if (lastNameInput === "") {
     errorLastName.textContent = "Last Name cannot be empty.";
@@ -37,6 +45,7 @@ document.getElementById("submit").addEventListener("click", function () {
     return;
   }
   errorLastName.textContent = "";
+  isLastNameValid = true;
 });
 
 document.getElementById("submit").addEventListener("click", function () {
@@ -44,6 +53,7 @@ document.getElementById("submit").addEventListener("click", function () {
   const emailInput = document.getElementById("email").value.trim();
   const errorEmail = document.querySelector(".error-email");
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  isEmailValid = false;
 
   if (emailInput === "") {
     errorEmail.textContent = "Email cannot be empty.";
@@ -54,6 +64,7 @@ document.getElementById("submit").addEventListener("click", function () {
     return;
   }
   errorEmail.textContent = "";
+  isEmailValid = true;
 });
 
 document.getElementById("submit").addEventListener("click", function () {
@@ -61,6 +72,7 @@ document.getElementById("submit").addEventListener("click", function () {
   const phoneInput = document.getElementById("phone").value.trim();
   const errorPhone = document.querySelector(".error-phone");
   const lbPhoneRegex = /^(03|70|71|76|78|79|81|82|83|84|85|88)\d{6}$/;
+  isPhoneValid = false;
 
   if (phoneInput === "") {
     errorPhone.textContent = "Phone cannot be epmty.";
@@ -75,4 +87,23 @@ document.getElementById("submit").addEventListener("click", function () {
     return;
   }
   errorPhone.textContent = "";
+  isPhoneValid = true;
 });
+
+document.getElementById("submit").addEventListener("click", function () {
+  if (isNameValid && isLastNameValid && isEmailValid && isPhoneValid) {
+    const form = document.querySelector("form");
+    form.innerHTML = `
+      <div class="success-message">
+        <span class="checkmark">✅</span>
+        <h2>Thank you for your submission!</h2>
+      </div>
+    `;
+  }
+});
+
+window.onload = function () {
+  document
+    .querySelectorAll('input[type="text"]')
+    .forEach((input) => (input.value = ""));
+};
