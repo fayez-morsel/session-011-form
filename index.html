@@ -1,13 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>form</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <form>
+        <label for="name">Name:</label>
+        <input type="text" name="name" id="name" placeholder="Enter your name">
+        <p class="error-name"></p>
     
+        <label for="last-name">Last Name:</label>
+        <input type="text" name="last-name" id="last-name" placeholder="Enter your last name">
+        <p class="error-last-name"></p>
+    
+        <label for="email">Email:</label>
+        <input type="text" name="email" id="email" placeholder="Enter your email">
+        <p class="error-email"></p>
+    
+        <label for="phone">Phone:</label>
+        <input type="text" name="phone" id="phone" placeholder="Enter your phone number">
+        <p class="error-phone"></p>
+    
+        <input type="button" value="Submit" id="submit">
+    </form>
+
     <script src="app.js"></script>
-</body>
+  </body>
 </html>
